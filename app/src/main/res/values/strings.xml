@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">V2x</string>
+    <string name="title_activity_v2x">V2x</string>
+    <string name="google_api">AIzaSyAq4vnjzkxDptzjzgfuenS5ICo751c8-lY</string>
+    <string name="google_app_name">V2xGradProject2022</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

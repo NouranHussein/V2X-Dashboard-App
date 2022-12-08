@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent"
+    tools:context=".DashboardActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:gauge="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dashboard_relative_layout_id"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_activity_id"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true">
+
+        <LinearLayout
+            android:id="@+id/tv_bluetooth"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_baseline_bluetooth_24"
+                />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="4"
+            android:shadowDy="5"
+            android:shadowRadius="3"
+            android:text="Connect Bluetooth"
+            android:textColor="@color/sec_black"
+            android:textSize="70sp"
+            android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_below="@id/tv_bluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="15dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:weightSum="100"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="15dp"
+         >
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:text="ON/OFF"
+                android:layout_marginEnd="10dp"
+                android:textSize="30sp"
+                android:layout_weight="50"
+                android:background="@drawable/select"
+                android:layout_width="wrap_content"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnONOFF"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:layout_weight="50"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Discover"
+                android:textAllCaps="false"
+                android:background="@drawable/select"
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/discover"/>
+
+        </LinearLayout>
+            <ListView
+                android:layout_margin="25dp"
+                android:layout_marginBottom="5dp"
+
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:background="#D6E6ED"
+
+                android:layout_height="150dp"
+                android:id="@+id/lvNewDevices"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:text="Start Connection"
+                android:textAllCaps="false"
+                android:layout_marginBottom="5dp"
+                android:textSize="30sp"
+                android:background="@drawable/select"
+                android:layout_width="wrap_content"
+                android:padding="15dp"
+                android:textColor="@color/white"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/startConnect"/>
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:text="Go to Dashboard"
+                android:textAllCaps="false"
+                android:layout_marginBottom="5dp"
+                android:textSize="26sp"
+                android:layout_width="wrap_content"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:id="@+id/send"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/dashboard_activity_id"
+        android:background="@color/background"
+        android:visibility="invisible"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+
+                android:id="@+id/dash_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/dash_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="30dp"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:shadowColor="@color/text_shadow"
+                        android:shadowDx="6"
+                        android:shadowDy="5"
+                        android:shadowRadius="5"
+                        android:text="Dashboard"
+                        android:textColor="@color/white"
+                        android:textSize="70sp"
+                        android:textStyle="italic|bold" />
+
+
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/mm"
+                    android:layout_below="@id/dash_tv"
+                    android:layout_width="1200dp"
+                    android:layout_height="550dp"
+                    android:layout_centerHorizontal="true"
+                    app:cardCornerRadius="360dp"
+                    android:backgroundTint="@color/black"
+                    app:cardElevation="15dp"
+                   >
+
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:weightSum="100"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                                <de.nitri.gauge.Gauge
+                                    android:layout_weight="40"
+                                    gauge:lowerText="Speed"
+                                    android:id="@+id/gauge"
+                                    android:layout_gravity="center"
+                                    android:layout_width="500dp"
+                                    android:layout_height="550dp"
+                                    gauge:faceColor="@color/black"
+                                    gauge:initialValue="0"
+                                    gauge:labelTextSize="55"
+                                    gauge:maxValue="110"
+                                    gauge:minValue="0"
+                                    gauge:lowerTextSize="40"
+                                    gauge:scaleColor="@color/white"
+                                    gauge:totalNicks="150"
+                                    gauge:upperText="km/h"
+                                    gauge:upperTextSize="40"
+                                    gauge:valuePerNick="1" />
+
+
+
+                            <LinearLayout
+                                android:layout_weight="60"
+                                android:orientation="vertical"
+                                android:layout_width="400dp"
+                                android:gravity="center"
+                                android:layout_height="550dp">
+
+                                <LinearLayout
+
+                                    android:orientation="horizontal"
+                                    android:layout_gravity="center"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+                                    <ImageView
+                                        android:padding="20dp"
+                                        android:contentDescription="Siren"
+                                        android:id="@+id/dash_siren_id"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/siren" />
+                                    <ImageView
+                                        android:padding="20dp"
+                                        android:id="@+id/dash_traffic_id"
+                                        android:layout_width="wrap_content"
+                                        android:contentDescription="Traffic Light"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/traffic_icon" />
+                                    <ImageView
+                                        android:padding="20dp"
+                                        android:id="@+id/warning_id"
+                                        android:layout_width="wrap_content"
+                                        android:contentDescription="Maintenance"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/warn" />
+                                </LinearLayout>
+
+
+                                <View
+                                    android:layout_marginTop="5dp"
+                                    android:layout_width="600dp"
+                                    android:paddingLeft="20dp"
+                                    android:paddingRight="20dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/backline"
+                                    android:layout_height="4dp"/>
+                                <LinearLayout
+
+                                    android:layout_width="wrap_content"
+                                    android:orientation="vertical"
+                                    android:weightSum="100"
+                                    android:layout_gravity="center"
+                                    android:layout_marginBottom="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_height="wrap_content">
+
+                                    <LinearLayout
+
+                                        android:gravity="center"
+                                        android:orientation="horizontal"
+                                        android:layout_weight="50"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+                                        <TextView
+                                            android:padding="10dp"
+                                            android:layout_margin="3dp"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:shadowColor="@color/text_shadow"
+                                            android:shadowDx="3"
+                                            android:textColor="@color/white"
+                                            android:text="Throttle"
+                                            android:shadowDy="2"
+                                            android:shadowRadius="2"
+                                            android:textSize="30sp"
+                                            android:textStyle="italic"
+                                            />
+
+                                        <TextView
+                                            android:layout_margin="3dp"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="value"
+                                            android:textSize="25sp"
+                                            android:padding="5dp"
+                                            android:id="@+id/throttle_value"
+                                            android:textColor="@color/white"
+                                            />
+                                    </LinearLayout>
+
+
+                                    <LinearLayout
+                                        android:layout_weight="50"
+                                        android:orientation="horizontal"
+                                        android:gravity="center"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+                                        <TextView
+                                            android:layout_margin="3dp"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:shadowColor="@color/text_shadow"
+                                            android:shadowDx="3"
+                                            android:text="Brake"
+                                            android:padding="10dp"
+                                            android:textColor="@color/white"
+                                            android:shadowDy="2"
+                                            android:shadowRadius="2"
+                                            android:textSize="30sp"
+                                            android:textStyle="italic"
+                                            />
+
+                                        <TextView
+                                            android:layout_margin="3dp"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="value"
+                                            android:padding="5dp"
+                                            android:textSize="25sp"
+                                            android:id="@+id/brake_value"
+                                            android:textColor="@color/white"
+                                            />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                                <View
+                                    android:layout_marginTop="5dp"
+                                    android:layout_width="600dp"
+                                    android:paddingLeft="20dp"
+                                    android:paddingRight="20dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/backline"
+                                    android:layout_height="4dp"/>
+
+                                <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:padding="20dp"
+                                        android:contentDescription="Brake"
+                                        android:id="@+id/dash_brake_id"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/brake" />
+                                    <ImageView
+                                        android:padding="20dp"
+                                        android:id="@+id/dash_exl_id"
+                                        android:contentDescription="Exterior Light"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/exterior_light" />
+                                    <ImageView
+                                        android:id="@+id/dash_new_cam_id"
+                                        android:layout_width="wrap_content"
+                                        android:contentDescription="Maintenance"
+                                        android:padding="20dp"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/ic_baseline_directions_car_24" />
+
+                                </LinearLayout>
+
+
+
+                                </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/map_lay"
+                    android:layout_below="@id/mm"
+                    android:layout_width="1000dp"
+                    android:layout_height="500dp"
+                    android:layout_centerHorizontal="true"
+                    app:cardCornerRadius="20dp"
+                    android:layout_marginTop="30dp"
+                    android:backgroundTint="@color/white"
+                    app:cardElevation="15dp"
+                    >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <fragment
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/map"
+                        tools:context=".MapsActivity"
+                        android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+
+                </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/analysis_lay"
+                    android:layout_below="@id/map_lay"
+                    android:layout_width="1000dp"
+                    android:layout_height="500dp"
+                    android:layout_centerHorizontal="true"
+                    app:cardCornerRadius="20dp"
+                    android:layout_marginTop="30dp"
+                    android:backgroundTint="@color/white"
+                    app:cardElevation="15dp"
+                    >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/lineChartId"
+                        />
+
+                </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:id="@+id/nn"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/analysis_lay"
+                    android:layout_marginTop="40dp"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:shadowColor="@color/text_shadow"
+                        android:shadowDx="4"
+                        android:shadowDy="4"
+                        android:shadowRadius="4"
+                        android:layout_gravity="center"
+                        android:gravity="start"
+                        android:text="GLOSA System"
+                        android:textColor="@color/white"
+                        android:textSize="60dp"
+                        android:textStyle="italic|bold" />
+
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:backgroundTint="@color/black"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="20dp"
+                    android:layout_centerHorizontal="true"
+                    app:cardCornerRadius="20dp"
+                    android:layout_below="@id/nn"
+                    android:layout_width="1100dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:orientation="vertical"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="30dp"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="10dp"
+                                android:weightSum="100"
+                                >
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_weight="50"
+                                    android:gravity="center"
+                                    android:layout_gravity="center"
+
+                                    >
+                                    <TextView
+                                        android:textColor="@color/white"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Traffic Light Timer   "
+                                        android:textSize="30sp"
+                                        android:textStyle="bold"
+                                        />
+                                <TextView
+                                    android:id="@+id/Current_Traffic_timer_id"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10:00"
+                                    android:shadowDx="4"
+                                    android:shadowDy="4"
+                                    android:shadowRadius="4"
+                                    android:textColor="@color/teal_700"
+                                    android:textStyle="bold|italic"
+                                    android:textSize="33sp" />
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="200dp"
+                                    android:layout_height="200dp"
+                                    android:layout_weight="50"
+                                    android:src="@drawable/trafficlight" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/speed_Recommendation_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Speed Recommendation"
+                                android:textColor="@color/white"
+                                android:padding="5dp"
+                                android:textStyle="bold"
+                                android:textSize="30sp" />
+
+
+                            <TextView
+                                android:id="@+id/Current_Traffic_Light_State_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:padding="5dp"
+                                android:text="Traffic Light State"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:textSize="30sp" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</RelativeLayout>
